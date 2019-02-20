@@ -19,7 +19,7 @@ const okCSS = FileSystem.readFileSync(`${__dirname}/fixtures/ok.css`, "UTF-8");
 // TODO: Review https://adblockplus.org/filter-cheatsheet for syntax.
 
 // Load PostCSS with PostCSSAddBlockLint Plugin
-const postCSS = PostCSS([PostCSSAddBlockLint()]);
+const postCSS = PostCSS([PostCSSAddBlockLint({ easyList: `${__dirname}/../easylist.txt` })]);
 
 describe("PostCSS Add Block Lint", () => {
   it("is slient for ok css", () => {

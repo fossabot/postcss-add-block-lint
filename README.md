@@ -28,8 +28,12 @@ const AddBlockLint = require("postcss-add-block-lint");
 
 Gulp.task("css", () =>
     Gulp.src("./src/*.css")
-        .pipe(PostCSS([AddBlockLint()]))
+        .pipe(PostCSS([AddBlockLint({ easyList: `${__dirname}/easylist.txt` })]))
 );
+```
+
+```bash
+wget https://easylist-downloads.adblockplus.org/easylist.txt
 ```
 
 ## Want to lean more?

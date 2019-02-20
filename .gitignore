@@ -17,3 +17,5 @@
 /.nyc_output/
 /coverage/
 /integration/.temp/
+
+/easylist.txt
