@@ -22,7 +22,7 @@ const okCSS = FileSystem.readFileSync(`${__dirname}/fixtures/ok.css`, "UTF-8");
 const postCSS = PostCSS([PostCSSAddBlockLint({ easyList: `${__dirname}/../easylist.txt` })]);
 
 describe("PostCSS Add Block Lint", () => {
-  it("is slient for ok css", () => {
+  it("is silent for ok css", () => {
     Assert.ok(postCSS.process(okCSS).css === okCSS);
   });
 });

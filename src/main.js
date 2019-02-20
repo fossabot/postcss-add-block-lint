@@ -6,9 +6,10 @@
 
 const PostCSS = require("postcss");
 
+const Constants = require("../src/PostCSSAddBlockLint/Constants");
 const RuleParser = require("../src/PostCSSAddBlockLint/RuleParser");
 
-module.exports = PostCSS.plugin("postcss-add-block-lint", options => {
+module.exports = PostCSS.plugin(Constants.PLUGIN_NAME, options => {
   // Overwrite defaults with user defined options.
   options = Object.assign({ easyList: null }, options);
 
