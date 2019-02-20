@@ -6,8 +6,7 @@
 
 const FileSystem = require("fs");
 
-const LINES = /\r?\n/;
-const DESIRED_RULE = /^##/;
+const Constants = require("./Constants");
 
 class RuleParser {
   constructor() {
@@ -33,12 +32,12 @@ class RuleParser {
       return;
     }
 
-    const easyListLines = easyList.split(LINES);
+    const easyListLines = easyList.split(Constants.LINES);
 
     // Find the relevant rules.
     easyListLines.forEach(easyListLine => {
-      if (easyListLine.match(DESIRED_RULE) !== null) {
-        this.rules.push(easyListLine.replace(DESIRED_RULE, ""));
+      if (easyListLine.match(Constants.DESIRED_RULE) !== null) {
+        this.rules.push(easyListLine.replace(Constants.DESIRED_RULE, ""));
       }
     });
   }
