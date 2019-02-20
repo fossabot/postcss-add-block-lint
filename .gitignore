@@ -1,0 +1,19 @@
+#-------------------------------------------------------------------------------
+#
+# Git Ignore Config, https://git-scm.com/docs/gitignore.
+#
+#-------------------------------------------------------------------------------
+
+# Keep this file even if directory has been ignored.
+!.keep
+
+# Node dependencies.
+/node_modules/
+
+# IDE Files, npm does not pay attention to user level ignores.
+/.idea/
+
+# Test runtime and reporting.
+/.nyc_output/
+/coverage/
+/integration/.temp/

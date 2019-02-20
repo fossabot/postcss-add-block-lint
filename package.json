@@ -1,0 +1,33 @@
+{
+  "name": "postcss-add-block-lint",
+  "version": "0.0.0",
+  "description": "A PostCSS plugin that is used to lint css for existence of classes that might trigger add blockers.",
+  "main": "./src/main.js",
+  "scripts": {
+    "test": "npm run test:lint && npm run test:unit",
+    "test:lint": "eslint --color ./src ./unit",
+    "test:unit": "nyc --reporter=text --reporter=lcov mocha --colors ./unit",
+    "format": "prettier ./**/*.{js,md,yml,yaml,json} --write"
+  },
+  "authors": [
+    "Daniel Tedman (https://danieltedman.com)",
+    "Jeff Teng (https://jafoteng.co)"
+  ],
+  "license": "MIT",
+  "repository": "https://github.com/dbtedman/postcss-add-block-lint",
+  "peerDependencies": {
+    "postcss": "6.x"
+  },
+  "devDependencies": {
+    "@types/mocha": "5.2.5",
+    "ajv": "6.5.4",
+    "eslint": "^5.14.0",
+    "fs-extra": "5.0.0",
+    "gulp": "4.0.0",
+    "gulp-postcss": "8.0.0",
+    "mocha": "4.1.0",
+    "nyc": "^13.3.0",
+    "postcss": "6.0.14",
+    "prettier": "1.15.3"
+  }
+}
