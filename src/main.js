@@ -15,12 +15,11 @@ module.exports = PostCSS.plugin(Constants.PLUGIN_NAME, options => {
 
   const ruleParser = new RuleParser();
 
-  if (options.easyList !== null) {
-    ruleParser.populateFromFile(options.easyList);
+  // Parse rules from file.
+  ruleParser.populateFromFile(options.easyList);
 
-    // eslint-disable-next-line no-console
-    console.log(ruleParser);
-  }
+  // eslint-disable-next-line no-console
+  console.log(ruleParser);
 
   // Root (postcss/lib/root.js)
   return css => {

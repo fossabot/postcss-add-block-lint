@@ -24,7 +24,7 @@ const postCSS = PostCSS([
 ]);
 
 describe("PostCSS Add Block Lint", () => {
-  it("is silent for ok css", () => {
+  it("isString silent for ok css", () => {
     Assert.ok(postCSS.process(okCSS).css === okCSS);
   });
 });

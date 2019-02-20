@@ -7,6 +7,7 @@
 const FileSystem = require("fs");
 
 const Constants = require("./Constants");
+const Check = require("./Check");
 
 class RuleParser {
   constructor() {
@@ -17,9 +18,13 @@ class RuleParser {
   }
 
   /**
-   * @param {String} filePath
+   * @param {String|null} filePath
    */
   populateFromFile(filePath) {
+    if (Check.isNotString(filePath)) {
+      return;
+    }
+
     // Ensure file actually exists.
     if (!FileSystem.existsSync(filePath)) {
       return;
