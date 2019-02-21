@@ -21,11 +21,13 @@ node_js:
 cache:
   directories:
     - "node_modules"
+    - "data"
 
 before_script:
   # Install npm dependencies and skip dependency audit as we will run this
   # explicitly later.
   - "npm install --no-audit"
+  - "npm run prepare"
 
 script:
   # Ensure returns true even if command not available.

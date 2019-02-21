@@ -4,6 +4,7 @@
   "description": "A PostCSS plugin that is used to lint css for existence of classes that might trigger add blockers.",
   "main": "./src/main.js",
   "scripts": {
+    "prepare": "mkdir -p ./data; if [ ! -f ./data/easylist.txt ]; then curl https://easylist-downloads.adblockplus.org/easylist.txt > ./data/easylist.txt; fi",
     "test": "npm run test:lint && npm run test:unit",
     "test:lint": "eslint --color ./src ./unit",
     "test:unit": "nyc --reporter=text --reporter=lcov mocha --colors ./unit",

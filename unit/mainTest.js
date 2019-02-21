@@ -19,7 +19,7 @@ const failCSS = FileSystem.readFileSync(
 
 // Load PostCSS with PostCSSAddBlockLint Plugin
 const postCSS = PostCSS([
-  PostCSSAddBlockLint({ easyList: `${__dirname}/../easylist.txt` })
+  PostCSSAddBlockLint({ easyList: `${__dirname}/../data/easylist.txt` })
 ]);
 
 describe("PostCSS Add Block Lint", () => {

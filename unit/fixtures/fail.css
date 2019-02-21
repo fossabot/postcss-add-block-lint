@@ -1,3 +1,15 @@
 .ad-101 {
-  color: red;
+  display: block;
+}
+
+.no-match {
+  display: block;
+}
+
+.SponsoredLinks {
+  display: block;
+}
+
+.tmnAdsenseContainer {
+  display: block;
 }
