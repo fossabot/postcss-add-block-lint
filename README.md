@@ -34,10 +34,19 @@ Gulp.task("css", () =>
 );
 ```
 
+### Prepare
+
+Ensure that ad blocking lists are downloaded to `./data` directory.
+
 ```bash
-# Download list to `./data/` directory.
 npm run prepare
 ```
+
+### Review
+
+When matches are found, they will be outputted to the console.
+
+![Error Display](./docs/ErrorDisplay.jpg)
 
 ## Want to lean more?
 
