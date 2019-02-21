@@ -12,11 +12,10 @@ const PostCSSAddBlockLint = require("../src/main");
 
 // Fixtures
 const okCSS = FileSystem.readFileSync(`${__dirname}/fixtures/ok.css`, "UTF-8");
-
-// TODO: Add Blocking (https://www.reddit.com/r/web_design/comments/1sq3xk/today_i_discovered_that_adblock_blocks_elements/)
-// TODO: Can we load https://easylist-downloads.adblockplus.org/easylist.txt, then parse it for identifiers?
-// TODO: Look at https://www.npmjs.com/package/abp-filter-parser
-// TODO: Review https://adblockplus.org/filter-cheatsheet for syntax.
+const failCSS = FileSystem.readFileSync(
+  `${__dirname}/fixtures/fail.css`,
+  "UTF-8"
+);
 
 // Load PostCSS with PostCSSAddBlockLint Plugin
 const postCSS = PostCSS([
@@ -24,7 +23,14 @@ const postCSS = PostCSS([
 ]);
 
 describe("PostCSS Add Block Lint", () => {
-  it("isString silent for ok css", () => {
+  it("is silent for ok css", () => {
     Assert.ok(postCSS.process(okCSS).css === okCSS);
+  });
+
+  it("is loud for not ok css", () => {
+    Assert.throws(() => {
+      // Do comparison here so that we actually do the work.
+      Assert.ok(postCSS.process(failCSS).css === failCSS);
+    });
   });
 });

@@ -10,7 +10,7 @@ class Check {
    * @returns {Boolean}
    */
   static isString(value) {
-    return Check.isDefined(value) && typeof value !== "string";
+    return Check.isDefined(value) && typeof value === "string";
   }
 
   /**

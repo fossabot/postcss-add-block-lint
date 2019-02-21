@@ -8,8 +8,9 @@ const FileSystem = require("fs");
 
 const Constants = require("./Constants");
 const Check = require("./Check");
+const Comparison = require("./Comparison");
 
-class RuleParser {
+class Rules {
   constructor() {
     /**
      * @type {Array<String>}
@@ -27,6 +28,8 @@ class RuleParser {
 
     // Ensure file actually exists.
     if (!FileSystem.existsSync(filePath)) {
+      // eslint-disable-next-line no-console
+      console.log("Does not Exist");
       return;
     }
 
@@ -34,6 +37,8 @@ class RuleParser {
 
     // Handle problems with reading of file.
     if (easyList === null) {
+      // eslint-disable-next-line no-console
+      console.log("Null List");
       return;
     }
 
@@ -46,6 +51,23 @@ class RuleParser {
       }
     });
   }
+
+  /**
+   * @param {Rule} compareRule
+   * @returns {Comparison}
+   */
+  compare(compareRule) {
+    const matchedRules = [];
+
+    this.rules.forEach(rule => {
+      // Simple exact match.
+      if (compareRule.selector === rule) {
+        matchedRules.push(rule);
+      }
+    });
+
+    return new Comparison({ selector: compareRule.selector, matchedRules });
+  }
 }
 
-module.exports = RuleParser;
+module.exports = Rules;

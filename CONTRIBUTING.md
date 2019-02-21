@@ -1,5 +1,12 @@
 # Contributing Guide
 
+## References
+
+-   https://www.reddit.com/r/web_design/comments/1sq3xk/today_i_discovered_that_adblock_blocks_elements/
+-   https://easylist-downloads.adblockplus.org/easylist.txt
+-   https://www.npmjs.com/package/abp-filter-parser
+-   https://adblockplus.org/filter-cheatsheet
+
 ## Testing and Code Quality
 
 ### Continuous Integration

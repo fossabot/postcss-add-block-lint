@@ -5,29 +5,38 @@
 //------------------------------------------------------------------------------
 
 const PostCSS = require("postcss");
+const Chalk = require("chalk");
 
 const Constants = require("../src/PostCSSAddBlockLint/Constants");
-const RuleParser = require("../src/PostCSSAddBlockLint/RuleParser");
+const Rules = require("./PostCSSAddBlockLint/Rules");
+const Report = require("./PostCSSAddBlockLint/Report");
 
 module.exports = PostCSS.plugin(Constants.PLUGIN_NAME, options => {
   // Overwrite defaults with user defined options.
   options = Object.assign({ easyList: null }, options);
 
-  const ruleParser = new RuleParser();
+  const rules = new Rules();
 
   // Parse rules from file.
-  ruleParser.populateFromFile(options.easyList);
-
-  // eslint-disable-next-line no-console
-  console.log(ruleParser);
+  rules.populateFromFile(options.easyList);
 
   // Root (postcss/lib/root.js)
   return css => {
+    const report = new Report();
+
     // Rule (postcss/lib/rule.js)
     css.walkRules(cssRule => {
-      if (options) {
-        cssRule.selector = `${cssRule.selector}`;
+      const comparison = rules.compare(cssRule);
+
+      if (comparison.matched()) {
+        report.contribute(comparison);
       }
     });
+
+    report.display();
+
+    if (report.failed()) {
+      throw new Error("Add Block Lint");
+    }
   };
 });
