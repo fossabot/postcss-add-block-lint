@@ -1,7 +1,5 @@
 # [PostCSS Add Block Lint](https://github.com/dbtedman/postcss-add-block-lint)
 
-> Pre-Release Software, Not published to NPM Yet
-
 [![Build Status](https://travis-ci.org/dbtedman/postcss-add-block-lint.svg?branch=master)](https://travis-ci.org/dbtedman/postcss-add-block-lint)
 [![Known Vulnerabilities](https://snyk.io/test/github/dbtedman/postcss-add-block-lint/badge.svg)](https://snyk.io/test/github/dbtedman/postcss-add-block-lint)
 
