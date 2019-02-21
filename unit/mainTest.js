@@ -32,5 +32,5 @@ describe("PostCSS Add Block Lint", () => {
       // Do comparison here so that we actually do the work.
       Assert.ok(postCSS.process(failCSS).css === failCSS);
     });
-  });
+  }, Error);
 });

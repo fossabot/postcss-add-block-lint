@@ -5,7 +5,6 @@
 //------------------------------------------------------------------------------
 
 const PostCSS = require("postcss");
-const Chalk = require("chalk");
 
 const Constants = require("../src/PostCSSAddBlockLint/Constants");
 const Rules = require("./PostCSSAddBlockLint/Rules");

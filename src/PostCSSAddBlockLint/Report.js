@@ -19,26 +19,24 @@ class Report {
   }
 
   display() {
-    const messages = [];
-
     if (this.failed()) {
-      messages.push(Chalk.bold.underline("Matched Rules\n"));
+      // eslint-disable-next-line no-console
+      console.log(Chalk.bold.underline("\nMatched Rules\n"));
 
       this.comparisons.forEach(comparison => {
         const selector = Chalk.redBright(comparison.selector);
-        const matches = comparison.matchedRules.join("\n\t");
+        const matches = comparison.matchedRules.join("\n\t##");
 
-        messages.push(`${selector}\n\t${matches}`);
+        // eslint-disable-next-line no-console
+        console.log(`selector: ${selector}\n\tmatch: ##${matches}\n`);
       });
 
-      messages.push(
+      // eslint-disable-next-line no-console
+      console.log(
         Chalk.blue(
-          "\nWe recommend you modify these selectors to avoid inadvertant ad blocking."
+          "We recommend you modify these selectors to avoid inadvertent ad blocking."
         )
       );
-
-      // eslint-disable-next-line no-console
-      console.log(`\n${messages.join("\n")}\n`);
     }
   }
 
