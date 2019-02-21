@@ -27,8 +27,9 @@ const PostCSS = require("gulp-postcss");
 const AddBlockLint = require("postcss-add-block-lint");
 
 Gulp.task("css", () =>
-    Gulp.src("./src/*.css")
-        .pipe(PostCSS([AddBlockLint({ easyList: `${__dirname}/data/easylist.txt` })]))
+    Gulp.src("./src/*.css").pipe(
+        PostCSS([AddBlockLint({ easyList: `${__dirname}/data/easylist.txt` })])
+    )
 );
 ```
 
@@ -46,7 +47,7 @@ When matches are found, they will be outputted to the console.
 
 ![Error Display](./docs/ErrorDisplay.jpg)
 
-## Want to lean more?
+## Want to learn more?
 
 -   See our [Contributing Guide](CONTRIBUTING.md) for details on how this repository is developed.
 -   See our [Changelog](CHANGELOG.md) for details on which features, improvements, and bug fixes have been implemented
