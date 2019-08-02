@@ -21,7 +21,7 @@
   "devDependencies": {
     "@types/mocha": "5.2.7",
     "ajv": "6.9.1",
-    "eslint": "5.14.1",
+    "eslint": "6.1.0",
     "fs-extra": "7.0.1",
     "mocha": "6.2.0",
     "nyc": "14.1.1",
