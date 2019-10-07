@@ -6,22 +6,11 @@
 ---
 name: master
 
+on: tags
+
 jobs:
-  build:
-    runs-on: ubuntu-latest
-
-    on:
-      push:
-        branches:
-          - master
-
-    steps:
-      - run: printenv
-
   publish:
     runs-on: ubuntu-latest
-
-    on: tags
 
     steps:
       - run: printenv
