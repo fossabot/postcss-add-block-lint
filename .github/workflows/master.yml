@@ -6,7 +6,8 @@
 ---
 name: master
 
-on: tags
+on:
+  - tag
 
 jobs:
   publish:
