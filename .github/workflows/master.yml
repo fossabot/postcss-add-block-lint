@@ -7,11 +7,12 @@
 name: master
 
 on:
-  - tag
+  release:
+    types: [published]
 
 jobs:
   publish:
     runs-on: ubuntu-latest
 
     steps:
-      - run: printenv
+      - run: 'echo "GITHUB_REF: ${GITHUB_REF}"'
