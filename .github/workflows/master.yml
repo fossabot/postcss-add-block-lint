@@ -15,4 +15,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - run: 'echo "GITHUB_REF: ${GITHUB_REF}"'; printenv
+      - run:
+          - 'echo "GITHUB_REF: ${GITHUB_REF}"'
+          - printenv
