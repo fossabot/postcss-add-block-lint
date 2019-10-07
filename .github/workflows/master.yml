@@ -42,6 +42,22 @@ jobs:
         env:
           CI: true
 
+  publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v1
+
+      - name: Use Node.js 10.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 10.x
+
+      - name: install
+        run: npm install --no-audit
+        env:
+          CI: true
+
       - name: publish
         run: ./bin/publish
         env:

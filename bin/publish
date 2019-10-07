@@ -44,6 +44,8 @@ function determine_release_version() {
 
 cd "${DIR_ROOT}" || exit 1
 
+printenv
+
 VERSION=$(determine_release_version)
 BRANCH=$(determine_branch)
 
