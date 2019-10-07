@@ -1,0 +1,80 @@
+#!/usr/bin/env bash
+#-------------------------------------------------------------------------------
+#
+# Publish
+#
+#-------------------------------------------------------------------------------
+
+DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
+DIR_ROOT="${DIR/\/bin/}"
+DIR_CURRENT=$(pwd)
+
+# $1 Message to print.
+function success_message() {
+  printf "\e[32mSuccess:\e[39m %s\n" "${1}"
+}
+
+# $1 Message to print.
+function failure_message() {
+  printf "\e[31mError:\e[39m %s\n" "${1}"
+}
+
+# $1 Message to print.
+function info_message() {
+  printf "\e[34mInfo:\e[39m %s\n" "${1}"
+}
+
+# $@ Command to execute.
+function ensure() {
+  "$@"
+  local status=$?
+  if [[ ${status} -ne 0 ]]; then
+    exit ${status}
+  fi
+}
+
+function determine_branch() {
+  # shellcheck disable=SC2063
+  git branch | grep \* | cut -d ' ' -f2
+}
+
+function determine_release_version() {
+  git tag -l --points-at HEAD
+}
+
+cd "${DIR_ROOT}" || exit 1
+
+VERSION=$(determine_release_version)
+BRANCH=$(determine_branch)
+
+if [[ ! "${BRANCH}" == "master" ]]; then
+  failure_message "Expected master branch but found \"${BRANCH}\"."
+  exit 1
+fi
+
+if [[ ! "${VERSION}" =~ /\d+\.\d+\.\d+/ ]]; then
+  info_message "This commit is not a release commit."
+  exit
+fi
+
+PACKAGE_VERSION=$(node -e "console.log(require(\"./package\").version)")
+PACKAGE_LOCK_VERSION=$(node -e "console.log(require(\"./package\").version)")
+
+if [[ ! "${PACKAGE_VERSION}" == "${PACKAGE_LOCK_VERSION}" ]]; then
+  failure_message "Package version \"${VERSION}\" does not match lock version \"${PACKAGE_LOCK_VERSION}\"."
+  exit 1
+fi
+
+if [[ ! "${PACKAGE_VERSION}" == "${VERSION}" ]]; then
+  failure_message "Package version \"${PACKAGE_VERSION}\" does not match release version \"${VERSION}\"."
+  exit 1
+fi
+
+if [[ -z "${NPM_TOKEN}" ]]; then
+  failure_message "NPM_TOKEN is required."
+  exit 1
+fi
+
+npm publish
+
+cd "${DIR_CURRENT}" || exit 1

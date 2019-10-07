@@ -1,0 +1,48 @@
+#------------------------------------------------------------------------------
+#
+# GitHub Actions Test Workflow
+#
+#------------------------------------------------------------------------------
+---
+name: master
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [10.x, 12.x]
+
+    steps:
+      - uses: actions/checkout@v1
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: install
+        run: npm install --no-audit
+        env:
+          CI: true
+
+      - name: prepare
+        run: npm run prepare
+        env:
+          CI: true
+
+      - name: test
+        run: npm run test
+        env:
+          CI: true
+
+      - name: publish
+        run: ./bin/publish
+        env:
+          CI: true

@@ -27,10 +27,14 @@ describe("PostCSS Add Block Lint", () => {
     Assert.ok(postCSS.process(okCSS).css === okCSS);
   });
 
-  it("is loud for not ok css", () => {
-    Assert.throws(() => {
-      // Do comparison here so that we actually do the work.
-      Assert.ok(postCSS.process(failCSS).css === failCSS);
-    });
-  }, Error);
+  it(
+    "is loud for not ok css",
+    () => {
+      Assert.throws(() => {
+        // Do comparison here so that we actually do the work.
+        Assert.ok(postCSS.process(failCSS).css === failCSS);
+      });
+    },
+    Error
+  );
 });
