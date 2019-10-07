@@ -8,7 +8,7 @@ const Assert = require("assert");
 const PostCSS = require("postcss");
 const FileSystem = require("fs");
 
-const PostCSSAddBlockLint = require("../src/main");
+const PostCSSAddBlockLint = require("./main");
 
 // Fixtures
 const okCSS = FileSystem.readFileSync(`${__dirname}/fixtures/ok.css`, "UTF-8");
