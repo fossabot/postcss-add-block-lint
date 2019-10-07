@@ -47,12 +47,6 @@ cd "${DIR_ROOT}" || exit 1
 printenv
 
 VERSION=$(determine_release_version)
-BRANCH=$(determine_branch)
-
-if [[ ! "${BRANCH}" == "master" ]]; then
-  failure_message "Expected master branch but found \"${BRANCH}\"."
-  exit 1
-fi
 
 if [[ ! "${VERSION}" =~ /\d+\.\d+\.\d+/ ]]; then
   info_message "This commit is not a release commit."
@@ -77,6 +71,6 @@ if [[ -z "${NPM_TOKEN}" ]]; then
   exit 1
 fi
 
-npm publish
+echo "npm publish"
 
 cd "${DIR_CURRENT}" || exit 1
