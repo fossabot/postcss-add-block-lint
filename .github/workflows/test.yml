@@ -1,40 +1,51 @@
-#------------------------------------------------------------------------------
+#-------------------------------------------------------------------------------
 #
-# GitHub Actions Test Workflow
+# GitHub Actions Test Configuration
 #
-#------------------------------------------------------------------------------
+#-------------------------------------------------------------------------------
 ---
-name: test
+name: "Test"
 
-on: [push]
+on:
+  schedule:
+    # 11pm UTC (9am Brisbane)
+    - cron: "0 23 * * *"
+  pull_request: {}
+  push:
+    branches: ["master"]
+
+env:
+  CI: true
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
+  test:
+    runs-on: "ubuntu-latest"
 
     strategy:
       matrix:
-        node-version: [10.x, 12.x]
+        node-version: ["10.x", "12.x", "13.x"]
 
     steps:
-      - uses: actions/checkout@v1
+      - uses: "actions/checkout@v1"
 
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
+      - name: "Use Node.js ${{ matrix.node-version }}"
+        uses: "actions/setup-node@v1"
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: "${{ matrix.node-version }}"
 
-      - name: Package Install
-        run: npm install --no-audit
-        env:
-          CI: true
+      - name: "Install"
+        run: "yarn install --no-audit"
 
-      - name: Prepare
-        run: npm run prepare
-        env:
-          CI: true
+      - name: "Prepare"
+        run: "yarn prepare"
 
-      - name: Test
-        run: npm run test
+      - name: "Lint"
+        run: "yarn lint"
+
+      - name: "Test"
+        run: 'yarn test && yarn codecov --token="${CODECOV_TOKEN}"'
         env:
-          CI: true
+          CODECOV_TOKEN: "${{ secrets.CODECOV_TOKEN }}"
+
+      - name: "Build"
+        run: "yarn build"

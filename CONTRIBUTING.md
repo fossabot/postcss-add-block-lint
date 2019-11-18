@@ -1,4 +1,15 @@
-# Contributing Guide
+# [PostCSS Add Block Lint](./README.md) / Contributing Guide
+
+-   [Thanks](#thanks)
+-   [References](#references)
+-   [Continuous Integration](#continuous-integration)
+-   [Code Formatting](#code-formatting)
+-   [Test](#test)
+-   [Publishing](#publishing)
+
+## Thanks
+
+Thanks to all of the [Contributors](https://github.com/dbtedman/postcss-analyse/graphs/contributors) who maintain PostCSS Analyse.
 
 ## References
 
@@ -7,38 +18,28 @@
 -   https://www.npmjs.com/package/abp-filter-parser
 -   https://adblockplus.org/filter-cheatsheet
 
-## Testing and Code Quality
+## Continuous Integration
 
-### Continuous Integration
+Provided by [GitHub Actions](https://github.com/dbtedman/postcss-analyse/actions?workflow=Test), run on every commit and pull request.
 
-[Travis CI](https://travis-ci.org/dbtedman/postcss-add-block-lint)
+## Code Formatting
 
-### Code Formatting
-
-```bash
-npm run format
-```
-
-### Static Analysis
-
-Linting support provided by [ESLint](http://eslint.org/) based on rules defined in `.eslintrc.yml`.
+Code formatting support provided by [Prettier](https://prettier.io/).
 
 ```bash
-npm run test:lint
+yarn format
 ```
 
-### Unit Tests
+## Test
 
-Code is unit tested using [MochaJS](https://mochajs.org), using test cases defined in the `unit/` directory.
+Tested using [Jest](https://jestjs.io/), using test cases defined in the `src/` directory matching `*.spec.ts` pattern.
 
 ```bash
-npm run test:unit
+yarn test
 ```
 
-## Releasing
+## Publishing
 
-Based on the [NPM Publishing Guide](https://docs.npmjs.com/getting-started/publishing-npm-packages), after updating the current version, run the following command:
+Update `CHANGELOG.md` and `package.json` with details on the updated release version.
 
-```bash
-npm publish
-```
+Then [Publish a new release](https://github.com/dbtedman/postcss-analyse/releases/new) to trigger publishing a new version of this package.
