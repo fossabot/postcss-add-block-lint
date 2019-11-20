@@ -4,6 +4,6 @@ Releases ordered so that the most recent are displayed at the top, with the curr
 
 ## [0.2.0](https://github.com/dbtedman/postcss-add-block-lint/releases/tag/0.2.0)
 
-### In Development
+### Features and Improvements
 
 -   Basic Implementation
