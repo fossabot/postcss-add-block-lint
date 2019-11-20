@@ -4,7 +4,7 @@
 [![Package Downloads (Weekly)](https://badgen.net/npm/dw/postcss-add-block-lint?label=Downloads&style=flat)](https://www.npmjs.com/package/postcss-add-block-lint)
 [![Package License](https://badgen.net/npm/license/postcss-add-block-lint?label=License&style=flat)](https://www.npmjs.com/package/postcss-add-block-lint)
 [![Known Vulnerabilities](https://snyk.io/test/github/dbtedman/postcss-add-block-lint/badge.svg?style=flat-square)](https://snyk.io/test/github/dbtedman/postcss-add-block-lint)
-[![Maintainability](https://api.codeclimate.com/v1/badges/fa0627fb4cfdc2a6dd04/maintainability)](https://codeclimate.com/github/dbtedman/postcss-add-block-lint/maintainability)
+[![Maintainability](https://api.codeclimate.com/v1/badges/5f29d7853b51d9e84616/maintainability)](https://codeclimate.com/github/dbtedman/postcss-add-block-lint/maintainability)
 [![Codecov](https://codecov.io/gh/dbtedman/postcss-add-block-lint/branch/master/graph/badge.svg)](https://codecov.io/gh/dbtedman/postcss-add-block-lint)
 [![GitHub Actions](https://github.com/dbtedman/postcss-add-block-lint/workflows/Test/badge.svg)](https://github.com/dbtedman/postcss-add-block-lint/actions?workflow=Test)
 
