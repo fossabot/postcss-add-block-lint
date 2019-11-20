@@ -10,6 +10,10 @@
 
 A [PostCSS](http://postcss.org) plugin that is used to lint css for existence of classes that might trigger add blockers.
 
+-   [Where do I start?](#where-do-i-start)
+-   [What options does it have?](#what-options-does-it-have)
+-   [Want to lean more?](#want-to-lean-more)
+
 ## Where do I start?
 
 > These instructions are only for this plugin. See the [PostCSS](http://postcss.org) website for framework information.
@@ -68,7 +72,7 @@ The minimal required configuration is the prefix selector, as shown in the above
 AddBlockLint({ easyList: `${__dirname}/data/easylist.txt` });
 ```
 
-## Want to learn more?
+## Want to lean more?
 
 -   See our [Contributing Guide](CONTRIBUTING.md) for details on how this repository is developed.
 -   See our [Changelog](CHANGELOG.md) for details on which features, improvements, and bug fixes have been implemented
