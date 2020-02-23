@@ -1,21 +1,8 @@
-import * as Assert from "assert";
 import PostCSS from "postcss";
-import * as FileSystem from "fs";
 
 import PostCSSAddBlockLint from "../index";
 
 describe("PostCSS", () => {
-  // Fixtures
-  const okCSS = FileSystem.readFileSync(
-    `${__dirname}/fixtures/ok.css`,
-    "UTF-8"
-  );
-  const failCSS = FileSystem.readFileSync(
-    `${__dirname}/fixtures/fail.css`,
-    "UTF-8"
-  );
-
-  // Load PostCSS with PostCSSAddBlockLint Plugin
   const postCSS = PostCSS([
     PostCSSAddBlockLint({
       rules: [
@@ -27,14 +14,26 @@ describe("PostCSS", () => {
     })
   ]);
 
-  it("is silent for ok css", () => {
-    Assert.ok(postCSS.process(okCSS).css === okCSS);
+  [".error", "p", "div", "body", "a"].forEach(selector => {
+    it(`is silent for ok selector [${selector}]`, () => {
+      expect(() => {
+        postCSS.process(`${selector} { display: none; }`).css;
+      }).not.toThrow();
+    });
   });
 
-  it("is loud for not ok css", () => {
-    Assert.throws(() => {
-      // Do comparison here so that we actually do the work.
-      Assert.ok(postCSS.process(failCSS).css === failCSS);
+  [
+    ".ad-101",
+    ".SponsoredLinks",
+    ".tmnAdsenseContainer",
+    ".adSize_LLMedia",
+    "#CookieEU",
+    ".twitterWidget"
+  ].forEach(selector => {
+    it(`is loud for not ok selector [${selector}]`, () => {
+      expect(() => {
+        postCSS.process(`${selector} { display: none; }`).css;
+      }).toThrow();
     });
   });
 });
