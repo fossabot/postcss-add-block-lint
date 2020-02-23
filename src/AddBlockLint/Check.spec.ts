@@ -1,3 +1,0 @@
-describe("Check", () => {
-  it.skip("", () => {});
-});

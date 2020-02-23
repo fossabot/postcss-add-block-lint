@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+#-------------------------------------------------------------------------------
+#
+# Prepare
+#
+#-------------------------------------------------------------------------------
+
+DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
+DIR_ROOT="${DIR/\/bin/}"
+DIR_CURRENT=$(pwd)
+
+cd "${DIR_ROOT}" || exit
+
+TASK_NAME="Prepare"
+
+source "./bin/_functions"
+
+info_message "${TASK_NAME} :: BEGIN"
+
+mkdir -p "./data"
+
+fetch_list "https://easylist-downloads.adblockplus.org/easylist.txt" "${DIR_ROOT}/data/easylist.txt"
+fetch_list "https://easylist-downloads.adblockplus.org/easylist-cookie.txt" "${DIR_ROOT}/data/easylist-cookie.txt"
+fetch_list "https://easylist.to/easylist/fanboy-social.txt" "${DIR_ROOT}/data/fanboy-social.txt"
+fetch_list "https://easylist.to/easylist/fanboy-annoyance.txt" "${DIR_ROOT}/data/fanboy-annoyance.txt"
+
+success_message "${TASK_NAME} :: END"
+
+cd "${DIR_CURRENT}" || exit

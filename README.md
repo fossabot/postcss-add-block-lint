@@ -43,7 +43,16 @@ const AddBlockLint = require("postcss-add-block-lint");
 
 Gulp.task("css", () =>
     Gulp.src("./src/*.css").pipe(
-        PostCSS([AddBlockLint({ easyList: `${__dirname}/data/easylist.txt` })])
+        PostCSS([
+            AddBlockLint({
+                rules: [
+                    `${__dirname}/data/easylist.txt`,
+                    `${__dirname}/data/easylist-cookie.txt`,
+                    `${__dirname}/data/fanboy-social.txt`,
+                    `${__dirname}/data/fanboy-annoyance.txt`
+                ]
+            })
+        ])
     )
 );
 ```
@@ -66,11 +75,25 @@ When matches are found, they will be outputted to the console.
 
 ### Minimal
 
-The minimal required configuration is the prefix selector, as shown in the above example.
+The minimal required configuration is the `rules` list, as shown in the above example.
 
 ```javascript
-AddBlockLint({ easyList: `${__dirname}/data/easylist.txt` });
+AddBlockLint({
+    rules: [
+        `${__dirname}/data/easylist.txt`,
+        `${__dirname}/data/easylist-cookie.txt`,
+        `${__dirname}/data/fanboy-social.txt`,
+        `${__dirname}/data/fanboy-annoyance.txt`
+    ]
+});
 ```
+
+Lists shown in the above example can be accessed from the following locations:
+
+-   [`easylist.txt`](https://easylist-downloads.adblockplus.org/easylist.txt)
+-   [`easylist-cookie.txt`](https://easylist-downloads.adblockplus.org/easylist-cookie.txt)
+-   [`fanboy-social.txt`](https://easylist.to/easylist/fanboy-social.txt)
+-   [`fanboy-annoyance.txt`](https://easylist.to/easylist/fanboy-annoyance.txt)
 
 ## Want to lean more?
 

@@ -21,13 +21,12 @@
   "main": "./src/main.js",
   "scripts": {
     "_prettier": "prettier './**/*.{md,yml,yaml,json,ts,js}'",
-    "build": "tsc --build ./tsconfig.json && rm -rf ./build/{**/*,*}.spec.js && rm -rf ./build/fixtures",
-    "clean": "rm -rf ./build/",
-    "codecov": "codecov",
+    "build": "./bin/build",
+    "clean": "./bin/clean",
     "format": "yarn _prettier --write",
     "lint": "yarn _prettier --check",
-    "prepare": "mkdir -p ./data; if [ ! -f ./data/easylist.txt ]; then curl https://easylist-downloads.adblockplus.org/easylist.txt > ./data/easylist.txt; fi",
-    "test": "jest --coverage"
+    "prepare": "./bin/prepare",
+    "test": "yarn jest --coverage"
   },
   "peerDependencies": {
     "postcss": "*"

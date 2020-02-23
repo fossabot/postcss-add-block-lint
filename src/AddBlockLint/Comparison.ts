@@ -1,6 +1,6 @@
 interface ComparisonConstructor {
-  selector: any;
-  matchedRules: any;
+  selector: string;
+  matchedRules: string[];
 }
 
 export default class Comparison {

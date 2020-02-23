@@ -5,20 +5,26 @@ import Rules from "./Rules";
 import Report from "./Report";
 
 export interface PluginOptions {
-  easyList: any;
+  rules: Array<string>;
 }
+
+const defaultOptions: PluginOptions = {
+  rules: []
+};
 
 export default class Plugin {
   prepare(): PostCSS.Plugin<any> {
     // @ts-ignore
     return PostCSS.plugin(PLUGIN_NAME, (options: PluginOptions) => {
       // Overwrite defaults with user defined options.
-      options = Object.assign({ easyList: null }, options);
+      options = Object.assign(defaultOptions, options);
 
       const rules = new Rules();
 
       // Parse rules from file.
-      rules.populateFromFile(options.easyList);
+      options.rules.forEach(file => {
+        rules.populateFromFile(file);
+      });
 
       // Root (postcss/lib/root.js)
       return (css: { walkRules: (arg0: (cssRule: any) => void) => void }) => {

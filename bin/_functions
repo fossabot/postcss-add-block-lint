@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+#-------------------------------------------------------------------------------
+#
+#
+#
+#-------------------------------------------------------------------------------
+
+# $1 URL to fetch list
+# $2 Path to store list
+function fetch_list() {
+  if [ ! -f "${2}" ]; then
+    curl "${1}" >"${2}"
+  fi
+}
+
+# $1 Message to print.
+function success_message() {
+  printf "\e[32mSuccess:\e[39m %s\n" "${1}"
+}
+
+# $1 Message to print.
+function failure_message() {
+  printf "\e[31mError:\e[39m %s\n" "${1}"
+}
+
+# $1 Message to print.
+function info_message() {
+  printf "\e[34mInfo:\e[39m %s\n" "${1}"
+}

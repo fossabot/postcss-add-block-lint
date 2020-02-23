@@ -4,6 +4,10 @@ Releases ordered so that the most recent are displayed at the top, with the curr
 
 ## In Development
 
+### Features and Improvements
+
+-   [#14](https://github.com/dbtedman/postcss-add-block-lint/issues/14) Support any lists for Adblock, Adblock Plus and uBlock Origin
+
 ### Bug Fixes
 
 -   Dependency updates to keep current

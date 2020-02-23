@@ -6,31 +6,24 @@ import Comparison from "./Comparison";
 import * as FileSystem from "fs";
 
 export default class Rules {
-  private rules: Array<String>;
+  private rules: Array<string>;
 
   constructor() {
     this.rules = [];
   }
 
-  populateFromFile(filePath: string) {
+  populateFromFile(filePath: string): boolean {
     if (Check.isNotString(filePath)) {
-      return;
+      return false;
     }
 
     // Ensure file actually exists.
     if (!FileSystem.existsSync(filePath)) {
       console.log("Does not Exist");
-      return;
+      return false;
     }
 
     const easyList = FileSystem.readFileSync(filePath, "UTF-8");
-
-    // Handle problems with reading of file.
-    if (easyList === null) {
-      console.log("Null List");
-      return;
-    }
-
     const easyListLines = easyList.split(LINES);
 
     // Find the relevant rules.
@@ -39,18 +32,19 @@ export default class Rules {
         this.rules.push(easyListLine.replace(DESIRED_RULE, ""));
       }
     });
+
+    return true;
   }
 
-  /**
-   * @param {Rule} compareRule
-   * @returns {Comparison}
-   */
-  compare(compareRule: Rule) {
+  isExactMatch(compareRule: Rule, foundRule: string) {
+    return compareRule.selector === foundRule;
+  }
+
+  compare(compareRule: Rule): Comparison {
     const matchedRules: any[] = [];
 
     this.rules.forEach(rule => {
-      // Simple exact match.
-      if (compareRule.selector === rule) {
+      if (this.isExactMatch(compareRule, rule)) {
         matchedRules.push(rule);
       }
     });

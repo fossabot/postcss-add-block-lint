@@ -17,7 +17,14 @@ describe("PostCSS", () => {
 
   // Load PostCSS with PostCSSAddBlockLint Plugin
   const postCSS = PostCSS([
-    PostCSSAddBlockLint({ easyList: `${__dirname}/../../data/easylist.txt` })
+    PostCSSAddBlockLint({
+      rules: [
+        `${__dirname}/../../data/easylist.txt`,
+        `${__dirname}/../../data/easylist-cookie.txt`,
+        `${__dirname}/../../data/fanboy-social.txt`,
+        `${__dirname}/../../data/fanboy-annoyance.txt`
+      ]
+    })
   ]);
 
   it("is silent for ok css", () => {
