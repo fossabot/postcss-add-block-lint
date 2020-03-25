@@ -49,9 +49,9 @@ Gulp.task("css", () =>
                     `${__dirname}/data/easylist.txt`,
                     `${__dirname}/data/easylist-cookie.txt`,
                     `${__dirname}/data/fanboy-social.txt`,
-                    `${__dirname}/data/fanboy-annoyance.txt`
-                ]
-            })
+                    `${__dirname}/data/fanboy-annoyance.txt`,
+                ],
+            }),
         ])
     )
 );
@@ -83,8 +83,8 @@ AddBlockLint({
         `${__dirname}/data/easylist.txt`,
         `${__dirname}/data/easylist-cookie.txt`,
         `${__dirname}/data/fanboy-social.txt`,
-        `${__dirname}/data/fanboy-annoyance.txt`
-    ]
+        `${__dirname}/data/fanboy-annoyance.txt`,
+    ],
 });
 ```
 

@@ -16,7 +16,7 @@ export default class Report {
     if (this.failed()) {
       console.log(Chalk.bold.underline("\nMatched Rules\n"));
 
-      this.comparisons.forEach(comparison => {
+      this.comparisons.forEach((comparison) => {
         const selector = Chalk.redBright(comparison.selector);
         const matches = comparison.matchedRules.join("\n\t##");
 

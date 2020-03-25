@@ -43,7 +43,7 @@ export default class Rules {
   compare(compareRule: Rule): Comparison {
     const matchedRules: any[] = [];
 
-    this.rules.forEach(rule => {
+    this.rules.forEach((rule) => {
       if (this.isExactMatch(compareRule, rule)) {
         matchedRules.push(rule);
       }

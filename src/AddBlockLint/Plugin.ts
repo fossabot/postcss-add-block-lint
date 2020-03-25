@@ -9,7 +9,7 @@ export interface PluginOptions {
 }
 
 const defaultOptions: PluginOptions = {
-  rules: []
+  rules: [],
 };
 
 export default class Plugin {
@@ -22,7 +22,7 @@ export default class Plugin {
       const rules = new Rules();
 
       // Parse rules from file.
-      options.rules.forEach(file => {
+      options.rules.forEach((file) => {
         rules.populateFromFile(file);
       });
 
