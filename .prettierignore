@@ -7,6 +7,7 @@
 # Fixtures used in testing that must retain current configuration.
 /integration/fixtures/css/
 /unit/fixtures/
+/coverage/
 
 # No need to touch any library code.
 /node_modules/
@@ -15,3 +16,4 @@
 /package-lock.json
 /.nyc_output/
 /integration/.temp/
+/build/
