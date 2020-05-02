@@ -1,6 +1,6 @@
 {
   "name": "postcss-add-block-lint",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "A PostCSS plugin that is used to lint css for existence of classes that might trigger add blockers.",
   "license": "MIT",
   "author": {

@@ -2,7 +2,7 @@
 
 Releases ordered so that the most recent are displayed at the top, with the currently being developed release at the top, labeled as **In Development**. This release will be given a number once it is ready to be released. Each release can contain both a **Features and Improvements** and **Bug Fixes** sections.
 
-## In Development
+## [0.3.0](https://github.com/dbtedman/postcss-add-block-lint/releases/tag/0.3.0)
 
 ### Features and Improvements
 
