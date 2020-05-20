@@ -7,6 +7,7 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/5f29d7853b51d9e84616/maintainability)](https://codeclimate.com/github/dbtedman/postcss-add-block-lint/maintainability)
 [![Codecov](https://codecov.io/gh/dbtedman/postcss-add-block-lint/branch/master/graph/badge.svg)](https://codecov.io/gh/dbtedman/postcss-add-block-lint)
 [![GitHub Actions](https://github.com/dbtedman/postcss-add-block-lint/workflows/Test/badge.svg)](https://github.com/dbtedman/postcss-add-block-lint/actions?workflow=Test)
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fdbtedman%2Fpostcss-add-block-lint.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fdbtedman%2Fpostcss-add-block-lint?ref=badge_shield)
 
 A [PostCSS](http://postcss.org) plugin that is used to lint css for existence of classes that might trigger add blockers.
 
@@ -101,3 +102,7 @@ Lists shown in the above example can be accessed from the following locations:
 -   See our [Changelog](CHANGELOG.md) for details on which features, improvements, and bug fixes have been implemented
 -   See our [License](LICENSE.md) for details on how you can use the code in this repository.
 -   See our [Security Guide](SECURITY.md) for details on how security is considered.
+
+
+## License
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fdbtedman%2Fpostcss-add-block-lint.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fdbtedman%2Fpostcss-add-block-lint?ref=badge_large)
